@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>jQuery.countdown</title>
+	</head>
+	<body>
+		<div id="container">	
+		</div>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="jquery.countdown.js"></script>
+	<script>
+	$(function(){
+	    $("#container").countDown({
+        timeInSecond: 60 * 60,//要倒计时的时间，秒为单位
+        displayTpl: "{day}天{hour}小时{minute}分{second}秒", //显示模版
+        callback: function () {//倒计时完后执行的回调函数
+            alert("倒计时结束！");
+        }
+      });
+  });
+  </script>  
+	</body>
+</html>
