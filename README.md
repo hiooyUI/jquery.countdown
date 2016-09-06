@@ -1,4 +1,4 @@
-# jQuery.countdown
+# jquery.countdown
 a simple, yet easy to use jquery countdown plugin
 
 ## how to use it?
