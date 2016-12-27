@@ -21,4 +21,4 @@ check out the demo.html example.
 
 or
 
-[live Demo](http://sandbox.runjs.cn/show/uvpedzwn)
+[live Demo](http://www.iampua.com/pui/count-down.html)
