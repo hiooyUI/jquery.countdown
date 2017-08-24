@@ -8,7 +8,8 @@
                 limit: 'day', // 限制默认显示到天(day)，可以设为时，分秒。若设为时(hour)的话，则超过24小时也只显示到时不转化为天。如：28小时20分20秒
                 callback: function () {// 倒计时完后执行的回调函数
                     alert('倒计时结束！');
-                }
+                },
+                loop: false // 是否循环
             });
     */
     $.fn.extend({
@@ -17,9 +18,10 @@
                 timeInSecond: 60 * 60, // 要倒计时的时间，秒为单位
                 displayTpl: '{day}天{hour}小时{minute}分{second}秒', // 显示模版
                 limit: 'day', // 限制默认显示到天(day)，可以设为时，分秒。若设为时(hour)的话，则超过24小时也只显示到时不转化为天。如：28小时20分20秒
-                callback: function () { }// 倒计时完后执行的回调函数
+                callback: function () { },// 倒计时完后执行的回调函数
+                loop: false
             };
-            var options = $.extend({}, defaults, options);
+            options = $.extend({}, defaults, options);
             this.each(function () {
                 var This = $(this);
                 function countDown(time, tpl) {
@@ -47,9 +49,14 @@
                             }
                         } else {
                             This.html(tpl.replace('{day}', 0).replace('{hour}', 0).replace('{minute}', 0).replace('{second}', 0));
-                            clearInterval(timer);
-                            options.callback();
-                            return;
+                            if (!options.loop) {
+                                clearInterval(timer);
+                                options.callback();
+                                return;
+                            } else {
+                                options.callback();
+                                time = options.timeInSecond + 1;
+                            }
                         }
                     }, 1000);
                 }
