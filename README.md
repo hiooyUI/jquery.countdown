@@ -14,7 +14,8 @@ a simple, yet easy to use jquery countdown plugin
                       // 若设为时(hour)的话，则超过24小时也只显示到时不转化为天。如：28小时20分20秒        
         callback: function () {// 倒计时完后执行的回调函数
             alert("倒计时结束！");
-        }
+        },
+        loop: false // 是否循环
     });
 ```
 check out the demo.html example.
